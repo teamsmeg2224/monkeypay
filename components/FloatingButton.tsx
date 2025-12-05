@@ -17,8 +17,9 @@ export default function FloatingButton() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-3">
       <button
+        id="custom-channel-button"
         onClick={openChannelTalk}
         className="w-14 h-14 bg-[#5C46E6] text-white rounded-full shadow-lg hover:bg-[#4c3aaf] hover:scale-110 transition-all flex items-center justify-center border-2 border-white group"
         aria-label="채널톡 상담"

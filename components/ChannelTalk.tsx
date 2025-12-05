@@ -13,6 +13,7 @@ export default function ChannelTalk() {
 
           ChannelIO('boot', {
             "pluginKey": "bf07e569-5645-4ed0-a351-bd7d3c0d5d7b",
+            "customLauncherSelector": "#custom-channel-button",
             "hideChannelButtonOnBoot": true
           });
         `,
