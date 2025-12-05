@@ -44,31 +44,8 @@ export default function Hero() {
 
       <div className="container-main flex flex-col items-center text-center z-10 relative">
         
-        {/* Trust Badge */}
-        <div className="flex flex-col items-center gap-4 mb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm hover:border-blue-200 transition-colors cursor-default"
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-            </span>
-            <span className="text-sm font-semibold text-slate-600">실시간 입금 시스템 가동 중</span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.05, duration: 0.5 }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold tracking-wide uppercase"
-          >
-            <span className="text-lg">👑</span> 고객 만족도 99% 달성
-          </motion.div>
-        </div>
-
+        {/* Trust Badge - Removed as requested */}
+        
         {/* Main Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

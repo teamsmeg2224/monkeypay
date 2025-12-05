@@ -110,6 +110,20 @@ body {
   box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
 }
 
+/* Animations */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 40s linear infinite;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
