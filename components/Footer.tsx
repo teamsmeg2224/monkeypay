@@ -73,8 +73,6 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-slate-500">
           <div className="space-y-1">
-            <p>상호명: 시드티켓 | 대표자: 홍길동 | 사업자등록번호: 123-45-67890</p>
-            <p>주소: 서울특별시 강남구 테헤란로 123 | 이메일: help@seedticket.com</p>
             <p className="mt-2">Copyright © {new Date().getFullYear()} SeedTicket. All rights reserved.</p>
           </div>
           <div className="flex gap-4">
