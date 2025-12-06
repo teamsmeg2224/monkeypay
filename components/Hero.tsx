@@ -76,7 +76,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 w-full justify-center items-center mb-20"
         >
           <a
-            href="https://open.kakao.com" // TODO: 실제 오픈채팅 링크로 변경 필요
+            href="https://open.kakao.com/o/sR4Kfk5h"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-[#FEE500] text-[#191919] font-bold text-lg px-8 py-4 rounded-2xl hover:bg-[#FDD835] transition-all flex items-center justify-center gap-3 shadow-lg shadow-yellow-400/20 hover:-translate-y-1 hover:shadow-xl w-full sm:w-auto min-w-[240px]"

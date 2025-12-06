@@ -100,7 +100,7 @@ export default function Header() {
                     <a href="tel:010-2591-2329" className="flex items-center justify-center gap-2 py-3 bg-slate-900 text-white font-bold rounded-xl">
                       <Phone size={18} /> 전화
                     </a>
-                    <a href="https://open.kakao.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 py-3 bg-[#FEE500] text-[#191919] font-bold rounded-xl">
+                    <a href="https://open.kakao.com/o/sR4Kfk5h" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 py-3 bg-[#FEE500] text-[#191919] font-bold rounded-xl">
                       <MessageCircle size={18} /> 카톡
                     </a>
                  </div>

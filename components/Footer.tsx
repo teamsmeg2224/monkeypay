@@ -64,7 +64,7 @@ export default function Footer() {
                 010-2591-2329
               </a>
               <p className="text-sm text-slate-400 mb-4">연중무휴 24시간 상담 가능</p>
-              <a href="https://open.kakao.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full py-3 bg-[#FEE500] text-[#191919] font-bold rounded-xl hover:bg-[#FDD835] transition-colors gap-2 text-sm">
+              <a href="https://open.kakao.com/o/sR4Kfk5h" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full py-3 bg-[#FEE500] text-[#191919] font-bold rounded-xl hover:bg-[#FDD835] transition-colors gap-2 text-sm">
                 카카오톡 상담하기 <ArrowRight size={16} />
               </a>
             </div>
