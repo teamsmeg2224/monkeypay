@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ChannelTalk from "@/components/ChannelTalk";
 
 export const metadata: Metadata = {
   title: "시드티켓 - 소액결제·정보이용료·상품권 현금화 업계 1위",
@@ -19,7 +18,6 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <ChannelTalk />
       </body>
     </html >
   );
