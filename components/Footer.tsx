@@ -52,8 +52,9 @@ export default function Footer() {
               <li><Link href="/info" className="hover:text-blue-400 transition-colors">서비스 정보</Link></li>
               <li><Link href="/sss" className="hover:text-blue-400 transition-colors">소액결제 현금화</Link></li>
               <li><Link href="/guide" className="hover:text-blue-400 transition-colors">이용 가이드</Link></li>
-              <li><Link href="#reviews" className="hover:text-blue-400 transition-colors">실시간 후기</Link></li>
-              <li><Link href="#faq" className="hover:text-blue-400 transition-colors">자주 묻는 질문</Link></li>
+              <li><Link href="/howto" className="hover:text-blue-400 transition-colors">현금화 방법</Link></li>
+              <li><Link href="/reviews" className="hover:text-blue-400 transition-colors">고객 후기</Link></li>
+              <li><Link href="/faq" className="hover:text-blue-400 transition-colors">자주 묻는 질문</Link></li>
             </ul>
           </div>
 
