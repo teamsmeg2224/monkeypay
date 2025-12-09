@@ -49,8 +49,9 @@ export default function Footer() {
           <div className="md:col-span-3">
             <h4 className="text-white font-bold mb-6">서비스 메뉴</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#features" className="hover:text-blue-400 transition-colors">서비스 소개</Link></li>
-              <li><Link href="#process" className="hover:text-blue-400 transition-colors">이용 방법</Link></li>
+              <li><Link href="/info" className="hover:text-blue-400 transition-colors">서비스 정보</Link></li>
+              <li><Link href="/sss" className="hover:text-blue-400 transition-colors">소액결제 현금화</Link></li>
+              <li><Link href="/guide" className="hover:text-blue-400 transition-colors">이용 가이드</Link></li>
               <li><Link href="#reviews" className="hover:text-blue-400 transition-colors">실시간 후기</Link></li>
               <li><Link href="#faq" className="hover:text-blue-400 transition-colors">자주 묻는 질문</Link></li>
             </ul>
@@ -76,8 +77,8 @@ export default function Footer() {
             <p className="mt-2">Copyright © {new Date().getFullYear()} SeedTicket. All rights reserved.</p>
           </div>
           <div className="flex gap-4">
-            <Link href="#" className="hover:text-white transition-colors">이용약관</Link>
-            <Link href="#" className="hover:text-white transition-colors">개인정보처리방침</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">이용약관</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">개인정보처리방침</Link>
           </div>
         </div>
       </div>
