@@ -25,13 +25,13 @@ export default function MainBanner() {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-        }, 5000);
+        }, 8000);
         return () => clearInterval(timer);
     }, []);
 
     // Hero Animation Cycle (Reused)
     useEffect(() => {
-        if (currentSlide !== 0) return; // Only animate when on Hero slide
+        if (currentSlide !== 1) return; // Only animate when on Hero slide (Index 1)
 
         const cycle = async () => {
             // 0: Initial
@@ -75,10 +75,29 @@ export default function MainBanner() {
             <AnimatePresence mode="wait">
                 {currentSlide === 0 ? (
                     <motion.div
-                        key="hero-slide"
+                        key="banner-slide"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-full absolute inset-0 flex flex-col justify-center items-center p-0"
+                    >
+                        <div className="relative w-full h-full">
+                            <Image
+                                src="/banner.png"
+                                alt="Promotion Banner"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                        </div>
+                    </motion.div>
+                ) : (
+                    <motion.div
+                        key="hero-slide"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
                         transition={{ duration: 0.5 }}
                         className="w-full absolute inset-0 flex flex-col justify-center pt-40 pb-20 lg:pt-64 lg:pb-32"
                     >
@@ -246,42 +265,6 @@ export default function MainBanner() {
                                     <div className="h-1.5 w-32 bg-slate-900 rounded-full mx-auto mb-2 absolute bottom-2 left-1/2 -translate-x-1/2 opacity-20"></div>
                                 </div>
                             </motion.div>
-                        </div>
-                    </motion.div>
-                ) : (
-                    <motion.div
-                        key="popup-slide"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 20 }}
-                        transition={{ duration: 0.5 }}
-                        className="w-full absolute inset-0 flex flex-col justify-center items-center p-8 pt-40 pb-20 lg:pt-64 lg:pb-32"
-                    >
-                        <div className="relative w-full max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl">
-                            <Image
-                                src="/banner.png"
-                                alt="Promotion Event"
-                                fill
-                                className="object-cover hover:scale-105 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-8 sm:p-12">
-                                <div className="text-white">
-                                    <h2 className="text-3xl sm:text-4xl font-bold mb-4">특별 이벤트</h2>
-                                    <p className="text-lg sm:text-xl text-white/90">지금 바로 상담하고 혜택을 받아보세요!</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mt-12 flex gap-4">
-                            <a
-                                href="https://open.kakao.com/o/sR4Kfk5h"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-[#FEE500] text-[#191919] font-bold text-lg px-8 py-4 rounded-xl flex items-center gap-3 shadow-lg hover:-translate-y-1 transition-transform"
-                            >
-                                <MessageCircle className="w-6 h-6" />
-                                카카오톡 상담하기
-                            </a>
                         </div>
                     </motion.div>
                 )}
