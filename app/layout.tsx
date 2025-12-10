@@ -8,15 +8,15 @@ function validateUrl(url: string): string {
     const parsedUrl = new URL(url);
     // 허용된 프로토콜만 허용
     if (!["http:", "https:"].includes(parsedUrl.protocol)) {
-      return "https://example.com";
+      return "https://seedtk.com";
     }
     return url;
   } catch {
-    return "https://example.com";
+    return "https://seedtk.com";
   }
 }
 
-const siteUrl = validateUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com");
+const siteUrl = validateUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://seedtk.com");
 const siteName = "시드티켓";
 const siteTitle = "시드티켓 - 소액결제·정보이용료·상품권 현금화 업계 1위";
 const siteDescription =
