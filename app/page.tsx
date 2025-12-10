@@ -14,7 +14,6 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Header />
       <MainBanner />
-      <PopupModal />
       <BrandTicker />
       <Features />
       <Process />
