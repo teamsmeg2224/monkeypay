@@ -66,7 +66,7 @@ export default function MainBanner() {
     };
 
     return (
-        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-white overflow-hidden min-h-screen flex flex-col justify-center">
+        <section className="relative bg-white overflow-hidden min-h-screen flex flex-col justify-center">
             {/* Background Elements (Shared) */}
             <div className="absolute inset-0 bg-grid-pattern -z-20"></div>
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/60 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/4 animate-pulse" style={{ animationDuration: '8s' }}></div>
@@ -80,7 +80,7 @@ export default function MainBanner() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
                         transition={{ duration: 0.5 }}
-                        className="w-full absolute inset-0 flex flex-col justify-center"
+                        className="w-full absolute inset-0 flex flex-col justify-center pt-32 pb-20 lg:pt-48 lg:pb-32"
                     >
                         {/* --- Original Hero Content --- */}
                         <div className="container-main flex flex-col items-center text-center z-10 relative">
@@ -255,7 +255,7 @@ export default function MainBanner() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 20 }}
                         transition={{ duration: 0.5 }}
-                        className="w-full absolute inset-0 flex flex-col justify-center items-center p-8"
+                        className="w-full absolute inset-0 flex flex-col justify-center items-center p-8 pt-32 pb-20 lg:pt-48 lg:pb-32"
                     >
                         <div className="relative w-full max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl">
                             <Image
