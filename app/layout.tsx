@@ -44,6 +44,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
@@ -58,7 +60,7 @@ export default function RootLayout({
     "@type": "Organization",
     name: String(siteName).replace(/[<>]/g, ""), // XSS 방지
     url: siteUrl,
-    logo: `${siteUrl}/favicon.ico`,
+    logo: `${siteUrl}/favicon.png`,
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -87,7 +89,7 @@ export default function RootLayout({
           id="org-jsonld"
           type="application/ld+json"
           strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ 
+          dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") // 추가 XSS 방지
           }}
         />
