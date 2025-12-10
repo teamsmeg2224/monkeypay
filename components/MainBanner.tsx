@@ -80,14 +80,14 @@ export default function MainBanner() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
                         transition={{ duration: 0.5 }}
-                        className="w-full absolute inset-0 flex flex-col justify-center items-center p-0"
+                        className="w-full absolute inset-0 flex flex-col justify-center items-center pt-32 pb-20 lg:pt-48 lg:pb-32 px-4"
                     >
-                        <div className="relative w-full h-full">
+                        <div className="relative w-full max-w-6xl aspect-video md:aspect-[2.4/1] rounded-3xl overflow-hidden shadow-2xl bg-white/5 border border-slate-200/20">
                             <Image
                                 src="/banner.png"
                                 alt="Promotion Banner"
                                 fill
-                                className="object-cover"
+                                className="object-contain"
                                 priority
                             />
                         </div>
