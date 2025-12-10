@@ -66,7 +66,7 @@ export default function MainBanner() {
     };
 
     return (
-        <section className="relative bg-white overflow-hidden min-h-screen flex flex-col justify-center">
+        <section className="relative bg-white overflow-hidden min-h-[80vh] lg:min-h-screen flex flex-col justify-center">
             {/* Background Elements (Shared) */}
             <div className="absolute inset-0 bg-grid-pattern -z-20"></div>
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/60 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/4 animate-pulse" style={{ animationDuration: '8s' }}></div>
@@ -80,7 +80,7 @@ export default function MainBanner() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
                         transition={{ duration: 0.5 }}
-                        className="w-full absolute inset-0 flex flex-col justify-center items-center pt-40 pb-10 lg:pt-80 lg:pb-10"
+                        className="w-full absolute inset-0 flex flex-col justify-center items-center pt-28 pb-12 lg:pt-80 lg:pb-10"
                     >
                         <div className="relative w-full h-full px-4 md:px-0">
                             <Image
