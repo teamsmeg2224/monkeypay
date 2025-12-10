@@ -80,9 +80,9 @@ export default function MainBanner() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
                         transition={{ duration: 0.5 }}
-                        className="w-full absolute inset-0 flex flex-col justify-center items-center pt-32 pb-20 lg:pt-48 lg:pb-32"
+                        className="w-full absolute inset-0 flex flex-col justify-center items-center pt-40 pb-10 lg:pt-80 lg:pb-10"
                     >
-                        <div className="relative w-full h-full px-4 md:px-0 container-main">
+                        <div className="relative w-full h-full px-4 md:px-0">
                             <Image
                                 src="/banner.png"
                                 alt="Promotion Banner"
