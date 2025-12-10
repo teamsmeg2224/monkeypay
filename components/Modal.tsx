@@ -49,12 +49,12 @@ export default function Modal() {
                         className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden z-[101]"
                     >
                         {/* Image Container */}
-                        <div className="relative aspect-[4/5] sm:aspect-square w-full">
+                        <div className="relative w-full h-[60vh] sm:h-[70vh] bg-white">
                             <Image
                                 src="/banner.png"
                                 alt="Event Banner"
                                 fill
-                                className="object-cover"
+                                className="object-contain"
                                 priority
                             />
                         </div>
