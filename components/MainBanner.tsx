@@ -259,7 +259,7 @@ export default function MainBanner() {
                     >
                         <div className="relative w-full max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl">
                             <Image
-                                src="/popup.png"
+                                src="/banner.png"
                                 alt="Promotion Event"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-700"
