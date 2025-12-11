@@ -81,33 +81,31 @@ export default function FloatingButton() {
   return (
     <div 
       ref={containerRef}
-      className="fixed bottom-0 right-6 z-[9999] flex items-end max-w-[calc(100vw-3rem)]"
+      className="fixed bottom-0 right-6 z-[9999]"
+      style={{ pointerEvents: 'none' }}
     >
       {/* Chat Widget */}
-      <div 
-        className="relative max-w-full" 
-        style={{ 
-          maxWidth: 'calc(100vw - 3rem)',
-          pointerEvents: 'none' // Allow clicks to pass through to iframe
+      <iframe
+        ref={iframeRef}
+        src="https://chat-widget-alpha-three.vercel.app/?brand=seed"
+        style={{
+          border: "none",
+          width: "90px", // Initial width
+          height: "90px", // Initial height
+          transition: "width 0.3s ease, height 0.3s ease",
+          maxWidth: "calc(100vw - 3rem)", // Prevent overflow
+          maxHeight: "calc(100vh - 3rem)", // Prevent overflow
+          pointerEvents: 'auto', // Enable clicks on iframe
+          display: 'block',
+          position: 'relative',
+          zIndex: 10000,
         }}
-      >
-        <iframe
-          ref={iframeRef}
-          src="https://chat-widget-alpha-three.vercel.app/?brand=seed"
-          style={{
-            border: "none",
-            width: "90px", // Initial width
-            height: "90px", // Initial height
-            transition: "all 0.3s ease",
-            maxWidth: "calc(100vw - 3rem)", // Prevent overflow
-            maxHeight: "calc(100vh - 3rem)", // Prevent overflow
-            pointerEvents: 'auto', // Enable clicks on iframe
-          }}
-          id="chat-widget-seed"
-          title="Chat Widget"
-          allow="microphone; camera"
-        />
-      </div>
+        id="chat-widget-seed"
+        title="Chat Widget"
+        allow="microphone; camera"
+        loading="eager"
+        allowFullScreen={false}
+      />
     </div>
   );
 }
