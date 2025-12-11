@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import ChatWidget from "@/components/ChatWidget";
 
 // URL 검증 함수
 function validateUrl(url: string): string {
@@ -97,6 +98,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <ChatWidget />
         <Analytics />
       </body>
     </html >
