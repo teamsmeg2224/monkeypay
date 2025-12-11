@@ -44,6 +44,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com data:",
               "img-src 'self' data: https: blob:",
               "connect-src 'self' https:",
+              "frame-src 'self' https://chat-widget-alpha-three.vercel.app",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",
