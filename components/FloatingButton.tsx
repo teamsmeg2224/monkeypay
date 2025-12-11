@@ -1,11 +1,102 @@
 "use client";
 
 import { MessageCircle, Phone } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 export default function FloatingButton() {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const constrainIframeSize = () => {
+      if (!iframeRef.current || !containerRef.current) return;
+      
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const availableWidth = viewportWidth - containerRect.left - 24;
+      const availableHeight = viewportHeight - containerRect.top - 24;
+      
+      const maxWidth = Math.max(90, Math.min(availableWidth, viewportWidth - 48));
+      const maxHeight = Math.max(90, Math.min(availableHeight, viewportHeight - 48));
+      
+      const currentWidth = parseInt(iframeRef.current.style.width || '90');
+      const currentHeight = parseInt(iframeRef.current.style.height || '90');
+      
+      const constrainedWidth = Math.min(currentWidth, maxWidth);
+      const constrainedHeight = Math.min(currentHeight, maxHeight);
+      
+      iframeRef.current.style.width = `${constrainedWidth}px`;
+      iframeRef.current.style.height = `${constrainedHeight}px`;
+    };
+
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data.type === "resize" && iframeRef.current && containerRef.current) {
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const availableWidth = viewportWidth - containerRect.left - 24;
+        const availableHeight = viewportHeight - containerRect.top - 24;
+        
+        const maxWidth = Math.max(90, Math.min(availableWidth, viewportWidth - 48));
+        const maxHeight = Math.max(90, Math.min(availableHeight, viewportHeight - 48));
+        
+        if (event.data.width) {
+          const requestedWidth = typeof event.data.width === 'string' 
+            ? parseInt(event.data.width.replace('px', '')) 
+            : event.data.width;
+          const constrainedWidth = Math.min(requestedWidth, maxWidth);
+          iframeRef.current.style.width = `${constrainedWidth}px`;
+        }
+        if (event.data.height) {
+          const requestedHeight = typeof event.data.height === 'string'
+            ? parseInt(event.data.height.replace('px', ''))
+            : event.data.height;
+          const constrainedHeight = Math.min(requestedHeight, maxHeight);
+          iframeRef.current.style.height = `${constrainedHeight}px`;
+        }
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    window.addEventListener("resize", constrainIframeSize);
+    
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      window.removeEventListener("resize", constrainIframeSize);
+    };
+  }, []);
+
   return (
-    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-3 items-end">
-      {/* 1. Phone */}
+    <div 
+      ref={containerRef}
+      className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-3 items-end"
+    >
+      {/* 1. Chat Widget */}
+      <div style={{ pointerEvents: 'none' }}>
+        <iframe
+          ref={iframeRef}
+          src="https://chat-widget-alpha-three.vercel.app/?brand=seed"
+          style={{
+            border: "none",
+            width: "90px",
+            height: "90px",
+            transition: "width 0.3s ease, height 0.3s ease",
+            maxWidth: "calc(100vw - 3rem)",
+            maxHeight: "calc(100vh - 3rem)",
+            pointerEvents: 'auto',
+            display: 'block',
+          }}
+          id="chat-widget-seed"
+          title="Chat Widget"
+          allow="microphone; camera"
+          loading="eager"
+        />
+      </div>
+
+      {/* 2. Phone */}
       <a
         href="tel:010-2591-2329"
         className="w-14 h-14 bg-slate-900 text-white rounded-full shadow-lg hover:bg-slate-800 hover:scale-110 transition-all flex items-center justify-center border-2 border-white animate-bounce-subtle group"
@@ -14,7 +105,7 @@ export default function FloatingButton() {
         <Phone size={28} className="group-hover:-rotate-12 transition-transform" />
       </a>
 
-      {/* 2. KakaoTalk */}
+      {/* 3. KakaoTalk */}
       <a
         href="https://open.kakao.com/o/sR4Kfk5h"
         target="_blank"
