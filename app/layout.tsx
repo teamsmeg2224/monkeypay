@@ -9,15 +9,15 @@ function validateUrl(url: string): string {
     const parsedUrl = new URL(url);
     // 허용된 프로토콜만 허용
     if (!["http:", "https:"].includes(parsedUrl.protocol)) {
-      return "https://seedtk.com";
+      return "https://시드티켓.com";
     }
     return url;
   } catch {
-    return "https://seedtk.com";
+    return "https://시드티켓.com";
   }
 }
 
-const siteUrl = validateUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://seedtk.com");
+const siteUrl = validateUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com");
 const siteName = "시드티켓";
 const siteTitle = "시드티켓 - 소액결제·정보이용료·상품권 현금화 업계 1위";
 const siteDescription =
@@ -37,15 +37,27 @@ export const metadata: Metadata = {
     siteName,
     locale: "ko_KR",
     type: "website",
+    images: [
+      {
+        url: `${siteUrl}/banner.png`,
+        width: 1200,
+        height: 630,
+        alt: "시드티켓 - 소액결제 현금화",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: [`${siteUrl}/banner.png`],
   },
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/favicon.png",
   },
 };
@@ -62,6 +74,7 @@ export default function RootLayout({
     name: String(siteName).replace(/[<>]/g, ""), // XSS 방지
     url: siteUrl,
     logo: `${siteUrl}/favicon.png`,
+    image: `${siteUrl}/banner.png`,
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -79,6 +92,10 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <link
           rel="stylesheet"
           as="style"

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import Link from "next/link";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "소액결제 현금화 방법 | 시드티켓",
@@ -10,12 +11,97 @@ export const metadata: Metadata = {
   openGraph: {
     title: "소액결제 현금화 방법 | 시드티켓",
     description: "소액결제 현금화 방법을 단계별로 상세히 안내합니다.",
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com"}/banner.png`,
+        width: 1200,
+        height: 630,
+        alt: "소액결제 현금화 방법",
+      },
+    ],
   },
 };
 
 export default function HowToPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com";
+  
+  // HowTo 구조화 데이터
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "소액결제 현금화 방법",
+    "description": "시드티켓과 함께 소액결제를 현금으로 전환하는 방법을 단계별로 상세히 안내합니다.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "상담 신청",
+        "text": "카카오톡 오픈채팅 또는 전화(010-2591-2329)로 상담을 신청해주세요. 원하시는 현금화 금액과 통신사(SKT/KT/LG U+)를 말씀해주시면 즉시 상담해드립니다.",
+        "url": `${siteUrl}/howto#step1`
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "수수료 및 입금 계좌 안내",
+        "text": "상담원이 최적의 수수료를 안내해드리며, 입금받으실 계좌 정보를 확인합니다. 시드티켓은 업계 최고 수준의 수수료를 제공하여 고객님께 최대한의 현금을 드립니다.",
+        "url": `${siteUrl}/howto#step2`
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "소액결제 진행",
+        "text": "안내받은 상품 또는 서비스로 소액결제를 진행해주세요. 결제 완료 후 상담원에게 알려주시면 즉시 확인 절차를 진행합니다.",
+        "url": `${siteUrl}/howto#step3`
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "입금 완료",
+        "text": "결제 확인 후 평균 5분 이내 지정하신 계좌로 입금해드립니다. 입금 완료 시 알림을 드리며, 거래가 완료됩니다.",
+        "url": `${siteUrl}/howto#step4`
+      }
+    ],
+    "totalTime": "PT5M"
+  };
+
+  // BreadcrumbList 구조화 데이터
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": siteUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "소액결제 현금화 방법",
+        "item": `${siteUrl}/howto`
+      }
+    ]
+  };
+
   return (
     <>
+      <Script
+        id="howto-jsonld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(howToJsonLd).replace(/</g, "\\u003c")
+        }}
+      />
+      <Script
+        id="breadcrumb-jsonld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c")
+        }}
+      />
       <Header />
       <main className="min-h-screen bg-white pt-24 pb-16">
         <div className="container-main max-w-4xl">
@@ -57,7 +143,7 @@ export default function HowToPage() {
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-6">단계별 현금화 방법</h2>
               <div className="space-y-6">
-                <div className="border-l-4 border-blue-600 pl-6 py-4 bg-blue-50 rounded-r-xl">
+                <div id="step1" className="border-l-4 border-blue-600 pl-6 py-4 bg-blue-50 rounded-r-xl">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                       1
@@ -80,7 +166,7 @@ export default function HowToPage() {
                   </div>
                 </div>
 
-                <div className="border-l-4 border-green-600 pl-6 py-4 bg-green-50 rounded-r-xl">
+                <div id="step2" className="border-l-4 border-green-600 pl-6 py-4 bg-green-50 rounded-r-xl">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                       2
@@ -98,7 +184,7 @@ export default function HowToPage() {
                   </div>
                 </div>
 
-                <div className="border-l-4 border-purple-600 pl-6 py-4 bg-purple-50 rounded-r-xl">
+                <div id="step3" className="border-l-4 border-purple-600 pl-6 py-4 bg-purple-50 rounded-r-xl">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                       3
@@ -121,7 +207,7 @@ export default function HowToPage() {
                   </div>
                 </div>
 
-                <div className="border-l-4 border-orange-600 pl-6 py-4 bg-orange-50 rounded-r-xl">
+                <div id="step4" className="border-l-4 border-orange-600 pl-6 py-4 bg-orange-50 rounded-r-xl">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                       4
@@ -201,6 +287,9 @@ export default function HowToPage() {
     </>
   );
 }
+
+
+
 
 
 

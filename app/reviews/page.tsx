@@ -89,7 +89,7 @@ const reviews = [
 ];
 
 export default function ReviewsPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com";
   
   // Review 구조화 데이터
   const reviewJsonLd = {
@@ -214,6 +214,9 @@ export default function ReviewsPage() {
     </>
   );
 }
+
+
+
 
 
 

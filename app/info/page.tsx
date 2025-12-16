@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import Link from "next/link";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "서비스 정보 | 시드티켓",
@@ -10,12 +11,79 @@ export const metadata: Metadata = {
   openGraph: {
     title: "서비스 정보 | 시드티켓",
     description: "시드티켓의 다양한 현금화 서비스 정보를 확인하세요.",
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com"}/banner.png`,
+        width: 1200,
+        height: 630,
+        alt: "시드티켓 서비스 정보",
+      },
+    ],
   },
 };
 
 export default function InfoPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com";
+  
+  // BreadcrumbList 구조화 데이터
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": siteUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "서비스 정보",
+        "item": `${siteUrl}/info`
+      }
+    ]
+  };
+
+  // Service 구조화 데이터
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "소액결제 현금화",
+    "provider": {
+      "@type": "Organization",
+      "name": "시드티켓",
+      "url": siteUrl
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "KR"
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://open.kakao.com/o/sR4Kfk5h",
+      "serviceType": "카카오톡 상담"
+    }
+  };
+
   return (
     <>
+      <Script
+        id="breadcrumb-jsonld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c")
+        }}
+      />
+      <Script
+        id="service-jsonld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceJsonLd).replace(/</g, "\\u003c")
+        }}
+      />
       <Header />
       <main className="min-h-screen bg-white pt-24 pb-16">
         <div className="container-main max-w-4xl">
@@ -234,6 +302,9 @@ export default function InfoPage() {
     </>
   );
 }
+
+
+
 
 
 

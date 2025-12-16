@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import Link from "next/link";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "이용 가이드 | 시드티켓",
@@ -10,12 +11,50 @@ export const metadata: Metadata = {
   openGraph: {
     title: "이용 가이드 | 시드티켓",
     description: "시드티켓 소액결제 현금화 이용 가이드. 단계별 상세 설명과 주의사항을 확인하세요.",
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com"}/banner.png`,
+        width: 1200,
+        height: 630,
+        alt: "시드티켓 이용 가이드",
+      },
+    ],
   },
 };
 
 export default function GuidePage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com";
+  
+  // BreadcrumbList 구조화 데이터
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": siteUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "이용 가이드",
+        "item": `${siteUrl}/guide`
+      }
+    ]
+  };
+
   return (
     <>
+      <Script
+        id="breadcrumb-jsonld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c")
+        }}
+      />
       <Header />
       <main className="min-h-screen bg-white pt-24 pb-16">
         <div className="container-main max-w-4xl">
@@ -209,6 +248,9 @@ export default function GuidePage() {
     </>
   );
 }
+
+
+
 
 
 

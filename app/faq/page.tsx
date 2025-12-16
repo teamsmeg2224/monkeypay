@@ -67,7 +67,7 @@ const faqs = [
 ];
 
 export default function FAQPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com";
   
   // FAQPage 구조화 데이터
   const faqJsonLd = {
@@ -148,6 +148,9 @@ export default function FAQPage() {
     </>
   );
 }
+
+
+
 
 
 
