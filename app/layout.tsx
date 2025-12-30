@@ -153,6 +153,11 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
+        <meta name="naver-site-verification" content="your-naver-verification-code" />
+        <meta name="google-site-verification" content="vo6MtNsqqjNcd9Z6ERtWwYFmTHDc2drWcc-hSGxQSDU" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="몽키페이" />
+        <meta property="og:locale" content="ko_KR" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="shortcut icon" href="/favicon.ico" />
