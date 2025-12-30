@@ -10,15 +10,15 @@ function validateUrl(url: string): string {
     const parsedUrl = new URL(url);
     // 허용된 프로토콜만 허용
     if (!["http:", "https:"].includes(parsedUrl.protocol)) {
-      return "https://몽키페이.com";
+      return "https://monkeypay-plum.vercel.app";
     }
     return url;
   } catch {
-    return "https://몽키페이.com";
+    return "https://monkeypay-plum.vercel.app";
   }
 }
 
-const siteUrl = validateUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://몽키페이.com");
+const siteUrl = validateUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://monkeypay-plum.vercel.app");
 const siteName = "몽키페이";
 const siteTitle = "몽키페이 - 소액결제·정보이용료·상품권 현금화 업계 1위";
 const siteDescription =

@@ -5,7 +5,7 @@ import FloatingButton from "@/components/FloatingButton";
 import BrandTicker from "@/components/BrandTicker";
 import Script from "next/script";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://몽키페이.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://monkeypay-plum.vercel.app";
 
 export const metadata: Metadata = {
   title: "몽키페이 - 소액결제·정보이용료·상품권 현금화 업계 1위 | 5분 입금 24시간 상담",
