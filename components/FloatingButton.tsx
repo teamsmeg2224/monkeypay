@@ -54,24 +54,24 @@ export default function FloatingButton() {
     if (typeof win.ChatWidget === 'function') {
       console.log('ChatWidget is loading... waiting for initialization');
 
-      // 위젯이 초기화될 때까지 재시도
+      // 위젯이 변이될 때까지 대기 (큐 방식 호출 절대 금지 - ReferenceError 원인)
       let attempts = 0;
       const retryOpen = () => {
         attempts++;
         if (win.ChatWidget && typeof win.ChatWidget === 'object' && typeof win.ChatWidget.open === 'function') {
-          console.log('Widget initialized, calling ChatWidget.open()');
+          console.log('Widget fully initialized, calling ChatWidget.open()');
           win.ChatWidget.open();
           return;
         }
-        if (attempts < 50) {
+        if (attempts < 100) { // 10초 대기
           setTimeout(retryOpen, 100);
         } else {
-          // Fallback: 5초 후에도 로드되지 않으면 큐 방식 시도 (최후의 수단)
-          console.warn('Widget load timeout, trying queue fallback');
-          win.ChatWidget('open');
+          console.error('Widget failed to initialize within time limit');
         }
       };
-      retryOpen();
+
+      // 약간의 지연 후 폴링 시작
+      setTimeout(retryOpen, 200);
       return;
     }
 
