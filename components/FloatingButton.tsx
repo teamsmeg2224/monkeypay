@@ -50,10 +50,9 @@ export default function FloatingButton() {
       }
     }
 
-    // 방법 3: ChatWidget() 함수 큐 방식
+    // 방법 3: ChatWidget() 함수 큐 방식 - 직접 호출하지 않고 로딩 대기
     if (typeof win.ChatWidget === 'function') {
-      console.log('Opening widget via ChatWidget() function queue');
-      win.ChatWidget('open');
+      console.log('ChatWidget is loading... waiting for initialization');
 
       // 위젯이 초기화될 때까지 재시도
       let attempts = 0;
@@ -66,9 +65,13 @@ export default function FloatingButton() {
         }
         if (attempts < 50) {
           setTimeout(retryOpen, 100);
+        } else {
+          // Fallback: 5초 후에도 로드되지 않으면 큐 방식 시도 (최후의 수단)
+          console.warn('Widget load timeout, trying queue fallback');
+          win.ChatWidget('open');
         }
       };
-      setTimeout(retryOpen, 500);
+      retryOpen();
       return;
     }
 
