@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
+import BrandTicker from "@/components/BrandTicker";
 import Script from "next/script";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://몽키페이.com";
@@ -139,8 +140,8 @@ export default function Home() {
         }}
       />
       <main className="min-h-screen bg-[#fafafa]">
-      <Header />
-        
+        <Header />
+
         {/* Hero Section - Magazine Style */}
         <section className="pt-32 pb-16 border-b-4 border-black">
           <div className="container-main">
@@ -192,6 +193,8 @@ export default function Home() {
           </div>
         </section>
 
+        <BrandTicker />
+
         {/* Services Grid - Asymmetric */}
         <section id="services" className="py-16 border-b-4 border-black">
           <div className="container-main">
@@ -204,7 +207,7 @@ export default function Home() {
                   <div className="text-6xl font-black mb-4">01</div>
                   <h3 className="text-3xl font-black mb-4 uppercase">휴대폰 비상금</h3>
                   <p className="text-lg mb-6 text-gray-700">
-                    소액결제·정보이용료 각 100만원씩 총 200만원까지 가능. 
+                    소액결제·정보이용료 각 100만원씩 총 200만원까지 가능.
                     매월 1일 한도 초기화로 반복 이용 가능합니다.
                   </p>
                   <ul className="space-y-2 mb-6">
@@ -231,7 +234,7 @@ export default function Home() {
                   <div className="text-6xl font-black text-white mb-4">02</div>
                   <h3 className="text-3xl font-black text-white mb-4 uppercase">신용카드 비상금</h3>
                   <p className="text-lg mb-6 text-white/80">
-                    신용카드 한도 내에서 간편 결제 후 현금으로 받는 서비스. 
+                    신용카드 한도 내에서 간편 결제 후 현금으로 받는 서비스.
                     무이자 최대 12개월 할부 가능.
                   </p>
                   <ul className="space-y-2 mb-6 text-white/90">
@@ -397,9 +400,9 @@ export default function Home() {
           </div>
         </section>
 
-      <Footer />
-      <FloatingButton />
-    </main>
+        <Footer />
+        <FloatingButton />
+      </main>
     </>
   );
 }
