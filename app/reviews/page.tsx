@@ -4,14 +4,13 @@ import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import Link from "next/link";
 import Script from "next/script";
-import { Star, Quote } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "고객 후기 | 시드티켓",
-  description: "시드티켓을 이용하신 고객님들의 생생한 후기. 실제 이용 경험과 만족도를 확인하세요. 99% 고객 만족도, 빠른 입금, 친절한 상담.",
+  title: "고객 후기 | 몽키페이",
+  description: "몽키페이을 이용하신 고객님들의 생생한 후기. 실제 이용 경험과 만족도를 확인하세요. 99% 고객 만족도, 빠른 입금, 친절한 상담.",
   openGraph: {
-    title: "고객 후기 | 시드티켓",
-    description: "시드티켓을 이용하신 고객님들의 생생한 후기를 확인하세요.",
+    title: "고객 후기 | 몽키페이",
+    description: "몽키페이을 이용하신 고객님들의 생생한 후기를 확인하세요.",
   },
 };
 
@@ -89,33 +88,45 @@ const reviews = [
 ];
 
 export default function ReviewsPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://몽키페이.com";
   
-  // Review 구조화 데이터
   const reviewJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "시드티켓",
+    "name": "몽키페이",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": reviews.length.toString(),
+      "ratingValue": "4.9",
+      "reviewCount": "1500",
       "bestRating": "5",
-      "worstRating": "5"
-    },
-    "review": reviews.map(review => ({
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": review.name
-      },
-      "datePublished": review.date,
-      "reviewBody": review.content,
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": review.rating.toString(),
-        "bestRating": "5",
-        "worstRating": "1"
+      "worstRating": "1"
+    }
+  };
+
+  const reviewsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": reviews.map((review, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": review.name
+        },
+        "datePublished": review.date,
+        "reviewBody": review.content,
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": review.rating.toString(),
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "itemReviewed": {
+          "@type": "Service",
+          "name": "소액결제 현금화 서비스"
+        }
       }
     }))
   };
@@ -126,86 +137,57 @@ export default function ReviewsPage() {
         id="review-jsonld"
         type="application/ld+json"
         strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ 
+        dangerouslySetInnerHTML={{
           __html: JSON.stringify(reviewJsonLd).replace(/</g, "\\u003c")
         }}
       />
+      <Script
+        id="reviews-jsonld"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(reviewsJsonLd).replace(/</g, "\\u003c")
+        }}
+      />
       <Header />
-      <main className="min-h-screen bg-white pt-24 pb-16">
-        <div className="container-main max-w-6xl">
-          <div className="mb-8">
-            <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm mb-4 inline-block">
+      <main className="min-h-screen bg-[#fafafa] pt-24 pb-16">
+        <div className="container-main max-w-5xl">
+          <div className="mb-12">
+            <Link href="/" className="font-black uppercase tracking-wider text-sm mb-4 inline-block hover:underline">
               ← 홈으로 돌아가기
             </Link>
-            <div className="flex items-center gap-4 mb-4">
-              <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900">
-                고객 후기
-              </h1>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 border border-yellow-100">
-                <Star size={20} className="fill-yellow-500 text-yellow-500" />
-                <span className="text-yellow-700 font-bold">평점 5.0</span>
-              </div>
-            </div>
-            <p className="text-lg text-slate-600">
-              시드티켓을 이용하신 고객님들의 생생한 후기입니다. 실제 이용 경험을 확인하세요.
+            <h1 className="section-title mb-4">
+              고객 후기
+            </h1>
+            <p className="text-xl text-gray-700">
+              몽키페이을 이용하신 고객님들의 생생한 후기입니다. 실제 이용 경험을 확인하세요.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {reviews.map((review, index) => (
-              <div 
-                key={index}
-                className="bg-slate-50 p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-slate-200 relative"
-              >
-                <Quote className="absolute top-6 right-6 text-slate-200 w-8 h-8" />
-                
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center font-bold text-white text-sm">
-                    {review.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-bold text-slate-900 text-sm">{review.name}</span>
-                      <span className="text-[10px] px-2 py-0.5 bg-white border border-slate-200 text-slate-500 rounded-full">{review.type}</span>
+              <div key={index} className="card-brutal p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-black text-white border-4 border-black flex items-center justify-center font-black text-xl shadow-brutal">
+                      {review.name.charAt(0)}
                     </div>
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={12} className={`${i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-slate-200"}`} />
-                      ))}
+                    <div>
+                      <div className="font-black text-lg">{review.name}</div>
+                      <div className="badge-brutal text-xs">{review.type}</div>
                     </div>
                   </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className={i < review.rating ? "text-black text-xl" : "text-gray-300 text-xl"}>★</span>
+                    ))}
+                  </div>
                 </div>
-                
-                <p className="text-slate-700 leading-relaxed mb-4 text-sm">
-                  "{review.content}"
-                </p>
-                
-                <div className="text-xs text-slate-400 border-t border-slate-200 pt-3">
-                  {review.date} 작성됨
-                </div>
+                <p className="text-gray-800 leading-relaxed mb-4 text-lg">"{review.content}"</p>
+                <div className="print-line border-black/20"></div>
+                <div className="text-sm text-gray-600 mt-3 font-black uppercase">{review.date}</div>
               </div>
             ))}
-          </div>
-
-          <div className="bg-blue-600 rounded-2xl p-8 text-white text-center">
-            <h2 className="text-2xl font-bold mb-4">지금 바로 시작하세요</h2>
-            <p className="mb-6 opacity-90">99% 고객 만족도, 평균 5분 입금</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://open.kakao.com/o/sR4Kfk5h"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#FEE500] text-[#191919] font-bold px-8 py-4 rounded-xl hover:bg-[#FDD835] transition-colors"
-              >
-                카카오톡 상담하기
-              </a>
-              <a
-                href="tel:010-2591-2329"
-                className="bg-white text-blue-600 font-bold px-8 py-4 rounded-xl hover:bg-slate-100 transition-colors"
-              >
-                전화 상담하기
-              </a>
-            </div>
           </div>
         </div>
       </main>
@@ -214,11 +196,3 @@ export default function ReviewsPage() {
     </>
   );
 }
-
-
-
-
-
-
-
-

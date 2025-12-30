@@ -5,11 +5,11 @@ import FloatingButton from "@/components/FloatingButton";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "소액결제 현금화 안내 | 시드티켓",
-  description: "소액결제 현금화 전문 시드티켓. 안전하고 빠른 현금화 서비스, 최고 수수료, 5분 입금. 24시간 상담 가능.",
+  title: "소액결제 현금화 안내 | 몽키페이",
+  description: "소액결제 현금화 전문 몽키페이. 안전하고 빠른 현금화 서비스, 최고 수수료, 5분 입금. 24시간 상담 가능.",
   openGraph: {
-    title: "소액결제 현금화 안내 | 시드티켓",
-    description: "소액결제 현금화 전문 시드티켓. 안전하고 빠른 현금화 서비스, 최고 수수료, 5분 입금.",
+    title: "소액결제 현금화 안내 | 몽키페이",
+    description: "소액결제 현금화 전문 몽키페이. 안전하고 빠른 현금화 서비스, 최고 수수료, 5분 입금.",
   },
 };
 
@@ -17,21 +17,21 @@ export default function SSSPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white pt-24 pb-16">
+      <main className="min-h-screen bg-[#fafafa] pt-24 pb-16">
         <div className="container-main max-w-4xl">
-          <div className="mb-8">
-            <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm mb-4 inline-block">
+          <div className="mb-12">
+            <Link href="/" className="font-black uppercase tracking-wider text-sm mb-4 inline-block hover:underline">
               ← 홈으로 돌아가기
             </Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+            <h1 className="section-title mb-4">
               소액결제 현금화 안내
             </h1>
-            <p className="text-lg text-slate-600">
-              시드티켓은 소액결제 현금화 전문 업체로, 안전하고 빠른 서비스를 제공합니다.
+            <p className="text-xl text-gray-700">
+              몽키페이은 소액결제 현금화 전문 업체로, 안전하고 빠른 서비스를 제공합니다.
             </p>
           </div>
 
-          <div className="prose prose-slate max-w-none space-y-8">
+          <div className="space-y-12">
             <section className="bg-blue-50 rounded-2xl p-8 border border-blue-100">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">소액결제 현금화란?</h2>
               <p className="text-slate-700 leading-relaxed mb-4">
@@ -39,13 +39,13 @@ export default function SSSPage() {
                 통신사에서 제공하는 소액결제 한도를 활용하여 필요한 현금을 빠르게 확보할 수 있는 방법입니다.
               </p>
               <p className="text-slate-700 leading-relaxed">
-                시드티켓은 정식 사업자 등록 업체로, 안전하고 투명한 거래를 약속드립니다. 
+                몽키페이은 정식 사업자 등록 업체로, 안전하고 투명한 거래를 약속드립니다. 
                 고객님의 개인정보 보호와 거래 안전을 최우선으로 생각합니다.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">시드티켓 소액결제 현금화의 장점</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">몽키페이 소액결제 현금화의 장점</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
                   <h3 className="text-xl font-bold text-slate-900 mb-2">⚡ 빠른 처리 속도</h3>
@@ -161,6 +161,7 @@ export default function SSSPage() {
     </>
   );
 }
+
 
 
 

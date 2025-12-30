@@ -6,14 +6,14 @@ import Link from "next/link";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "소액결제 현금화 방법 | 시드티켓",
-  description: "소액결제 현금화 방법 상세 가이드. 단계별 절차, 준비물, 주의사항까지 모든 것을 확인하세요. 시드티켓과 함께 쉽고 빠르게 현금화하세요.",
+  title: "소액결제 현금화 방법 | 몽키페이",
+  description: "소액결제 현금화 방법 상세 가이드. 단계별 절차, 준비물, 주의사항까지 모든 것을 확인하세요. 몽키페이과 함께 쉽고 빠르게 현금화하세요.",
   openGraph: {
-    title: "소액결제 현금화 방법 | 시드티켓",
+    title: "소액결제 현금화 방법 | 몽키페이",
     description: "소액결제 현금화 방법을 단계별로 상세히 안내합니다.",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com"}/banner.png`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://몽키페이.com"}/banner.png`,
         width: 1200,
         height: 630,
         alt: "소액결제 현금화 방법",
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
 };
 
 export default function HowToPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://몽키페이.com";
   
   // HowTo 구조화 데이터
   const howToJsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "소액결제 현금화 방법",
-    "description": "시드티켓과 함께 소액결제를 현금으로 전환하는 방법을 단계별로 상세히 안내합니다.",
+    "description": "몽키페이과 함께 소액결제를 현금으로 전환하는 방법을 단계별로 상세히 안내합니다.",
     "step": [
       {
         "@type": "HowToStep",
@@ -43,7 +43,7 @@ export default function HowToPage() {
         "@type": "HowToStep",
         "position": 2,
         "name": "수수료 및 입금 계좌 안내",
-        "text": "상담원이 최적의 수수료를 안내해드리며, 입금받으실 계좌 정보를 확인합니다. 시드티켓은 업계 최고 수준의 수수료를 제공하여 고객님께 최대한의 현금을 드립니다.",
+        "text": "상담원이 최적의 수수료를 안내해드리며, 입금받으실 계좌 정보를 확인합니다. 몽키페이은 업계 최고 수준의 수수료를 제공하여 고객님께 최대한의 현금을 드립니다.",
         "url": `${siteUrl}/howto#step2`
       },
       {
@@ -103,21 +103,21 @@ export default function HowToPage() {
         }}
       />
       <Header />
-      <main className="min-h-screen bg-white pt-24 pb-16">
+      <main className="min-h-screen bg-[#fafafa] pt-24 pb-16">
         <div className="container-main max-w-4xl">
-          <div className="mb-8">
-            <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm mb-4 inline-block">
+          <div className="mb-12">
+            <Link href="/" className="font-black uppercase tracking-wider text-sm mb-4 inline-block hover:underline">
               ← 홈으로 돌아가기
             </Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+            <h1 className="section-title mb-4">
               소액결제 현금화 방법
             </h1>
-            <p className="text-lg text-slate-600">
-              시드티켓과 함께 소액결제를 현금으로 전환하는 방법을 단계별로 상세히 안내합니다.
+            <p className="text-xl text-gray-700">
+              몽키페이과 함께 소액결제를 현금으로 전환하는 방법을 단계별로 상세히 안내합니다.
             </p>
           </div>
 
-          <div className="prose prose-slate max-w-none space-y-8">
+          <div className="space-y-12">
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-6">소액결제 현금화 준비사항</h2>
               <div className="bg-blue-50 rounded-xl p-6 border border-blue-100 mb-6">
@@ -175,7 +175,7 @@ export default function HowToPage() {
                       <h3 className="text-xl font-bold text-slate-900 mb-2">수수료 및 입금 계좌 안내</h3>
                       <p className="text-slate-700 mb-3">
                         상담원이 최적의 수수료를 안내해드리며, 입금받으실 계좌 정보를 확인합니다. 
-                        시드티켓은 업계 최고 수준의 수수료를 제공하여 고객님께 최대한의 현금을 드립니다.
+                        몽키페이은 업계 최고 수준의 수수료를 제공하여 고객님께 최대한의 현금을 드립니다.
                       </p>
                       <p className="text-sm text-slate-600 italic">
                         * 수수료는 금액과 통신사에 따라 상이할 수 있습니다.
@@ -259,21 +259,21 @@ export default function HowToPage() {
               </div>
             </section>
 
-            <section className="bg-blue-600 rounded-2xl p-8 text-white text-center">
-              <h2 className="text-2xl font-bold mb-4">지금 바로 시작하세요</h2>
-              <p className="mb-6 opacity-90">24시간 상담 가능, 평균 5분 입금</p>
+            <section className="card-brutal-dark p-8 text-center">
+              <h2 className="text-3xl font-black text-white mb-6 uppercase">지금 바로 시작하세요</h2>
+              <p className="mb-8 text-white/90 text-lg">24시간 상담 가능, 평균 5분 입금</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="https://open.kakao.com/o/sR4Kfk5h"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#FEE500] text-[#191919] font-bold px-8 py-4 rounded-xl hover:bg-[#FDD835] transition-colors"
+                  className="btn-brutal-inverse"
                 >
                   카카오톡 상담하기
                 </a>
                 <a
                   href="tel:010-2591-2329"
-                  className="bg-white text-blue-600 font-bold px-8 py-4 rounded-xl hover:bg-slate-100 transition-colors"
+                  className="btn-brutal"
                 >
                   전화 상담하기
                 </a>

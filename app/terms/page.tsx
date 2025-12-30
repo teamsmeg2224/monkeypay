@@ -5,11 +5,11 @@ import FloatingButton from "@/components/FloatingButton";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "이용약관 | 시드티켓",
-  description: "시드티켓 소액결제 현금화 서비스 이용약관. 서비스 이용에 관한 모든 약관을 확인하실 수 있습니다.",
+  title: "이용약관 | 몽키페이",
+  description: "몽키페이 소액결제 현금화 서비스 이용약관. 서비스 이용에 관한 모든 약관을 확인하실 수 있습니다.",
   openGraph: {
-    title: "이용약관 | 시드티켓",
-    description: "시드티켓 소액결제 현금화 서비스 이용약관을 확인하세요.",
+    title: "이용약관 | 몽키페이",
+    description: "몽키페이 소액결제 현금화 서비스 이용약관을 확인하세요.",
   },
 };
 
@@ -17,28 +17,28 @@ export default function TermsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white pt-24 pb-16">
+      <main className="min-h-screen bg-[#fafafa] pt-24 pb-16">
         <div className="container-main max-w-4xl">
-          <div className="mb-8">
-            <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm mb-4 inline-block">
+          <div className="mb-12">
+            <Link href="/" className="font-black uppercase tracking-wider text-sm mb-4 inline-block hover:underline">
               ← 홈으로 돌아가기
             </Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+            <h1 className="section-title mb-4">
               이용약관
             </h1>
-            <p className="text-lg text-slate-600">
-              시드티켓 소액결제 현금화 서비스 이용약관입니다. 서비스 이용 전 반드시 확인해주세요.
+            <p className="text-xl text-gray-700">
+              몽키페이 소액결제 현금화 서비스 이용약관입니다. 서비스 이용 전 반드시 확인해주세요.
             </p>
-            <p className="text-sm text-slate-500 mt-2">
+            <p className="text-sm text-gray-600 mt-2 font-black uppercase">
               최종 수정일: {new Date().toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </div>
 
-          <div className="prose prose-slate max-w-none space-y-8">
+          <div className="space-y-12">
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-4">제1조 (목적)</h2>
               <p className="text-slate-700 leading-relaxed">
-                본 약관은 시드티켓(이하 "회사")이 제공하는 소액결제 현금화 서비스(이하 "서비스")의 이용과 관련하여 
+                본 약관은 몽키페이(이하 "회사")이 제공하는 소액결제 현금화 서비스(이하 "서비스")의 이용과 관련하여 
                 회사와 이용자 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
               </p>
             </section>
@@ -145,6 +145,7 @@ export default function TermsPage() {
     </>
   );
 }
+
 
 
 

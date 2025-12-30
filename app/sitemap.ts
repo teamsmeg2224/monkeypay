@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://시드티켓.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://몽키페이.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -81,6 +81,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/products`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
   ];
 }

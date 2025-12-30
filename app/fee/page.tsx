@@ -5,11 +5,11 @@ import FloatingButton from "@/components/FloatingButton";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "수수료 안내 | 시드티켓",
-  description: "시드티켓 소액결제 현금화 수수료 안내. 업계 최고 수준의 수수료로 제공. 금액별, 통신사별 수수료 비교 및 상세 안내.",
+  title: "수수료 안내 | 몽키페이",
+  description: "몽키페이 소액결제 현금화 수수료 안내. 업계 최고 수준의 수수료로 제공. 금액별, 통신사별 수수료 비교 및 상세 안내.",
   openGraph: {
-    title: "수수료 안내 | 시드티켓",
-    description: "시드티켓 소액결제 현금화 수수료 안내. 업계 최고 수준의 수수료를 확인하세요.",
+    title: "수수료 안내 | 몽키페이",
+    description: "몽키페이 소액결제 현금화 수수료 안내. 업계 최고 수준의 수수료를 확인하세요.",
   },
 };
 
@@ -17,25 +17,25 @@ export default function FeePage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white pt-24 pb-16">
+      <main className="min-h-screen bg-[#fafafa] pt-24 pb-16">
         <div className="container-main max-w-4xl">
-          <div className="mb-8">
-            <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm mb-4 inline-block">
+          <div className="mb-12">
+            <Link href="/" className="font-black uppercase tracking-wider text-sm mb-4 inline-block hover:underline">
               ← 홈으로 돌아가기
             </Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+            <h1 className="section-title mb-4">
               수수료 안내
             </h1>
-            <p className="text-lg text-slate-600">
-              시드티켓은 업계 최고 수준의 수수료로 고객님께 최대한의 현금을 드립니다.
+            <p className="text-xl text-gray-700">
+              몽키페이은 업계 최고 수준의 수수료로 고객님께 최대한의 현금을 드립니다.
             </p>
           </div>
 
-          <div className="prose prose-slate max-w-none space-y-8">
+          <div className="space-y-12">
             <section className="bg-blue-50 rounded-2xl p-8 border border-blue-100">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">시드티켓 수수료 정책</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">몽키페이 수수료 정책</h2>
               <p className="text-slate-700 leading-relaxed mb-4">
-                시드티켓은 고객님께 최대한의 현금을 드리기 위해 업계 최고 수준의 수수료를 제공합니다. 
+                몽키페이은 고객님께 최대한의 현금을 드리기 위해 업계 최고 수준의 수수료를 제공합니다. 
                 금액과 통신사에 따라 수수료가 상이할 수 있으며, 정확한 수수료는 상담 시 안내해드립니다.
               </p>
               <div className="bg-white rounded-lg p-6 mt-4 border border-blue-200">
@@ -83,7 +83,7 @@ export default function FeePage() {
               <h2 className="text-2xl font-bold text-slate-900 mb-4">수수료 비교</h2>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <p className="text-slate-700 mb-4">
-                  시드티켓은 업계 최고 수준의 수수료를 제공하여 고객님께 최대한의 현금을 드립니다. 
+                  몽키페이은 업계 최고 수준의 수수료를 제공하여 고객님께 최대한의 현금을 드립니다. 
                   다른 업체와 비교해보시면 차이를 확인하실 수 있습니다.
                 </p>
                 <div className="bg-green-50 rounded-lg p-4 border border-green-200">
@@ -133,6 +133,7 @@ export default function FeePage() {
     </>
   );
 }
+
 
 
 

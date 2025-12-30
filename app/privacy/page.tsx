@@ -5,11 +5,11 @@ import FloatingButton from "@/components/FloatingButton";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "개인정보처리방침 | 시드티켓",
-  description: "시드티켓 개인정보처리방침. 개인정보의 수집, 이용, 보관, 폐기 등에 관한 모든 내용을 확인하실 수 있습니다.",
+  title: "개인정보처리방침 | 몽키페이",
+  description: "몽키페이 개인정보처리방침. 개인정보의 수집, 이용, 보관, 폐기 등에 관한 모든 내용을 확인하실 수 있습니다.",
   openGraph: {
-    title: "개인정보처리방침 | 시드티켓",
-    description: "시드티켓 개인정보처리방침을 확인하세요.",
+    title: "개인정보처리방침 | 몽키페이",
+    description: "몽키페이 개인정보처리방침을 확인하세요.",
   },
 };
 
@@ -17,28 +17,28 @@ export default function PrivacyPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white pt-24 pb-16">
+      <main className="min-h-screen bg-[#fafafa] pt-24 pb-16">
         <div className="container-main max-w-4xl">
-          <div className="mb-8">
-            <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm mb-4 inline-block">
+          <div className="mb-12">
+            <Link href="/" className="font-black uppercase tracking-wider text-sm mb-4 inline-block hover:underline">
               ← 홈으로 돌아가기
             </Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+            <h1 className="section-title mb-4">
               개인정보처리방침
             </h1>
-            <p className="text-lg text-slate-600">
-              시드티켓은 이용자의 개인정보를 소중히 다루며, 관련 법령을 준수합니다.
+            <p className="text-xl text-gray-700">
+              몽키페이은 이용자의 개인정보를 소중히 다루며, 관련 법령을 준수합니다.
             </p>
-            <p className="text-sm text-slate-500 mt-2">
+            <p className="text-sm text-gray-600 mt-2 font-black uppercase">
               최종 수정일: {new Date().toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </div>
 
-          <div className="prose prose-slate max-w-none space-y-8">
+          <div className="space-y-12">
             <section className="bg-blue-50 rounded-2xl p-8 border border-blue-100">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">개인정보의 처리 목적</h2>
               <p className="text-slate-700 leading-relaxed mb-4">
-                시드티켓은 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 
+                몽키페이은 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 
                 이용 목적이 변경되는 경우에는 개인정보보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
               </p>
               <div className="space-y-4">
@@ -108,7 +108,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-slate-900 mb-4">개인정보의 제3자 제공</h2>
               <div className="bg-yellow-50 rounded-lg p-6 border border-yellow-200">
                 <p className="text-slate-700 leading-relaxed">
-                  <strong>시드티켓은 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다.</strong> 
+                  <strong>몽키페이은 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다.</strong> 
                   다만, 다음의 경우에는 예외로 합니다:
                 </p>
                 <ul className="mt-4 space-y-2 text-slate-700">
@@ -179,7 +179,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-slate-900 mb-4">개인정보 보호책임자</h2>
               <div className="bg-slate-50 rounded-lg p-6 border border-slate-200">
                 <p className="text-slate-700 mb-4">
-                  시드티켓은 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 
+                  몽키페이은 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 
                   아래와 같이 개인정보 보호책임자를 지정하고 있습니다.
                 </p>
                 <div className="space-y-2 text-slate-700">
@@ -253,6 +253,7 @@ export default function PrivacyPage() {
     </>
   );
 }
+
 
 
 

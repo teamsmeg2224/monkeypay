@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
 import Logo from "./Logo";
 
@@ -18,93 +18,100 @@ export default function Header() {
   }, []);
 
   const menuItems = [
-    { name: "서비스 소개", href: "#features" },
+    { name: "상품안내", href: "/products" },
+    { name: "서비스", href: "#services" },
     { name: "이용방법", href: "#process" },
-    { name: "이용후기", href: "#reviews" },
-    { name: "자주묻는질문", href: "#faq" },
+    { name: "후기", href: "#reviews" },
+    { name: "FAQ", href: "#faq" },
   ];
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled 
-          ? "bg-white/90 backdrop-blur-lg border-b border-slate-100 shadow-sm py-3" 
-          : "bg-transparent py-5"
+          ? "bg-white border-b-4 border-black shadow-lg py-3" 
+          : "bg-white py-4"
       }`}
     >
-      <div className="container-main flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group relative z-50">
-          <Logo textClassName="text-slate-900" />
-        </Link>
+      <div className="container-main">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 group">
+            <Logo textClassName="text-black" />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-10">
-          <nav className="flex gap-8">
-            {menuItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-slate-600 hover:text-blue-600 font-medium transition-colors text-[15px] relative group"
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            <nav className="flex gap-6">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-black font-black text-sm uppercase tracking-wider hover:underline transition-all"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+            
+            <div className="flex items-center gap-4 pl-6 border-l-4 border-black">
+              <a
+                href="https://open.kakao.com/o/sR4Kfk5h"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-brutal text-sm py-2 px-4"
               >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100"></span>
-              </Link>
-            ))}
-          </nav>
-          
-          <div className="flex items-center gap-5 pl-8 border-l border-slate-200">
-            <div className="text-right hidden lg:block">
-              <div className="text-[11px] text-blue-600 font-bold mb-0.5 tracking-tight">365일 24시간 상담</div>
-              <div className="text-lg font-extrabold text-slate-900 leading-none tracking-tight">010-2591-2329</div>
+                문의하기
+              </a>
+              <a
+                href="tel:010-2591-2329"
+                className="btn-brutal text-sm py-2 px-4"
+              >
+                <Phone size={16} className="inline mr-2" />
+                전화
+              </a>
             </div>
-            <a
-              href="tel:010-2591-2329"
-              className="btn-primary flex items-center gap-2 !py-3 !px-5 !rounded-xl shadow-lg shadow-blue-900/10 hover:shadow-blue-900/20"
-            >
-              <Phone size={18} />
-              <span className="hidden lg:inline">전화상담</span>
-            </a>
           </div>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-slate-900 p-2 relative z-50" 
-          onClick={toggleMenu}
-          aria-label="메뉴 열기"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-black p-2 border-4 border-black" 
+            onClick={toggleMenu}
+            aria-label="메뉴 열기"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="fixed inset-0 bg-white z-40 md:hidden pt-24 px-6 overflow-y-auto animate-in fade-in slide-in-from-top-5 duration-200">
-          <nav className="flex flex-col gap-2">
+        <div className="md:hidden bg-white border-t-4 border-black">
+          <nav className="container-main py-6 flex flex-col gap-4">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="py-4 text-xl font-bold text-slate-900 border-b border-slate-50"
+                className="text-black font-black text-lg uppercase border-b-2 border-black py-3 hover:bg-black hover:text-white transition-all"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="mt-8 space-y-4">
-              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-center">
-                 <p className="text-slate-500 text-sm mb-1">365일 24시간 연중무휴</p>
-                 <p className="text-2xl font-extrabold text-slate-900 mb-4">010-2591-2329</p>
-                 <div className="grid grid-cols-2 gap-3">
-                    <a href="tel:010-2591-2329" className="flex items-center justify-center gap-2 py-3 bg-slate-900 text-white font-bold rounded-xl">
-                      <Phone size={18} /> 전화
-                    </a>
-                    <a href="https://open.kakao.com/o/sR4Kfk5h" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 py-3 bg-[#FEE500] text-[#191919] font-bold rounded-xl">
-                      <MessageCircle size={18} /> 카톡
-                    </a>
-                 </div>
-              </div>
+            <div className="pt-4 border-t-4 border-black space-y-3">
+              <a
+                href="https://open.kakao.com/o/sR4Kfk5h"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-brutal-inverse block w-full text-center"
+                onClick={() => setIsOpen(false)}
+              >
+                문의하기
+              </a>
+              <a href="tel:010-2591-2329" className="btn-brutal block text-center">
+                <Phone size={20} className="inline mr-2" />
+                010-2591-2329
+              </a>
             </div>
           </nav>
         </div>
