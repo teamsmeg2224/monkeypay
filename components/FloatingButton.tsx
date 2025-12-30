@@ -12,9 +12,9 @@ export default function FloatingButton() {
       setIsWidgetReady(true);
       console.log('Widget ready:', e.detail);
     };
-    
+
     document.addEventListener('chatWidgetReady', handleWidgetReady);
-    
+
     // 이미 준비되어 있는지 확인
     const win = window as any;
     if (win.ChatWidget) {
@@ -25,7 +25,7 @@ export default function FloatingButton() {
         setIsWidgetReady(true);
       }
     }
-    
+
     return () => {
       document.removeEventListener('chatWidgetReady', handleWidgetReady);
     };
@@ -33,14 +33,14 @@ export default function FloatingButton() {
 
   const handleChatOpen = () => {
     const win = window as any;
-    
+
     // 방법 1: ChatWidget.open() 메서드 (완전히 초기화됨)
     if (win.ChatWidget && typeof win.ChatWidget === 'object' && typeof win.ChatWidget.open === 'function') {
       console.log('Opening widget via ChatWidget.open()');
       win.ChatWidget.open();
       return;
     }
-    
+
     // 방법 2: ChatWidget.isReady() 확인 후 열기
     if (win.ChatWidget && typeof win.ChatWidget === 'object' && typeof win.ChatWidget.isReady === 'function') {
       if (win.ChatWidget.isReady()) {
@@ -49,12 +49,12 @@ export default function FloatingButton() {
         return;
       }
     }
-    
+
     // 방법 3: ChatWidget() 함수 큐 방식
     if (typeof win.ChatWidget === 'function') {
       console.log('Opening widget via ChatWidget() function queue');
       win.ChatWidget('open');
-      
+
       // 위젯이 초기화될 때까지 재시도
       let attempts = 0;
       const retryOpen = () => {
@@ -71,9 +71,9 @@ export default function FloatingButton() {
       setTimeout(retryOpen, 500);
       return;
     }
-    
+
     console.warn('ChatWidget not found, please wait for it to load');
-    
+
     // 위젯이 준비될 때까지 대기
     if (!isWidgetReady) {
       const handleReady = () => {
@@ -81,7 +81,7 @@ export default function FloatingButton() {
         document.removeEventListener('chatWidgetReady', handleReady);
       };
       document.addEventListener('chatWidgetReady', handleReady);
-      
+
       setTimeout(() => {
         document.removeEventListener('chatWidgetReady', handleReady);
       }, 10000);
@@ -92,29 +92,11 @@ export default function FloatingButton() {
     <div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-3">
       <button
         onClick={handleChatOpen}
-        className="w-16 h-16 bg-white border-4 border-black shadow-brutal hover:shadow-brutal-sm transition-all flex items-center justify-center group hover:translate-x-1 hover:translate-y-1"
+        className="w-16 h-16 bg-black border-4 border-black shadow-brutal hover:shadow-brutal-sm transition-all flex items-center justify-center group hover:translate-x-1 hover:translate-y-1"
         aria-label="채팅 상담"
       >
-        <MessageSquare size={28} className="text-black group-hover:scale-110 transition-transform" />
+        <MessageSquare size={28} className="text-white group-hover:scale-110 transition-transform" />
       </button>
-      
-      <a
-        href="https://open.kakao.com/o/sR4Kfk5h"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-16 h-16 bg-white border-4 border-black shadow-brutal hover:shadow-brutal-sm transition-all flex items-center justify-center group hover:translate-x-1 hover:translate-y-1"
-        aria-label="카카오톡 상담"
-      >
-        <MessageCircle size={28} className="text-black group-hover:scale-110 transition-transform" />
-      </a>
-      
-      <a
-        href="tel:010-2591-2329"
-        className="w-16 h-16 bg-black border-4 border-black shadow-brutal hover:shadow-brutal-sm transition-all flex items-center justify-center group hover:translate-x-1 hover:translate-y-1"
-        aria-label="전화 상담"
-      >
-        <Phone size={28} className="text-white group-hover:scale-110 transition-transform" />
-      </a>
     </div>
   );
 }
