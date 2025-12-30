@@ -95,7 +95,7 @@ export const metadata: Metadata = {
   },
   verification: {
     // Google Search Console, Naver Webmaster 등에서 제공하는 verification 코드를 여기에 추가
-    // google: "your-google-verification-code",
+    google: "vo6MtNsqqjNcd9Z6ERtWwYFmTHDc2drWcc-hSGxQSDU",
     // other: {
     //   "naver-site-verification": "your-naver-verification-code",
     // },
